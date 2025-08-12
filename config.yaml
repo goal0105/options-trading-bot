@@ -1,0 +1,33 @@
+data_provider:
+  type: "polygon"           # or "alpaca" or "custom"
+  api_key: "sCigumyXWTMNcs4DV2QZDY4NWJJBYqVO" # Now using free api so Replace paid api //get from client
+
+execution:
+  provider: "alpaca"        # "alpaca" (paper) or "mock"
+  api_key: "YOUR_ALPACA_KEY" #todo
+  api_secret: "YOUR_ALPACA_SECRET" #todo
+  base_url: "https://paper-api.alpaca.markets"  # Alpaca paper
+
+symbols:
+  - "SPY"
+  - "QQQ"
+  - "TSLA"
+  # SPX options are index-level; keep SPX as signal-only if you want gamma models
+
+scan:
+  lookback_bars: 18
+  timeframe: "1Min"        # used to request candles; change to your feed's naming
+  scan_interval_seconds: 30
+
+sizing:
+  grade_A_plus: 0.05       # percent risk of account (5%)
+  grade_A: 0.03
+  grade_B: 0.01
+  max_risk_per_trade_pct: 0.01  # fallback
+
+rubric_weights:
+  behavior: 0.30
+  structure: 0.25
+  institutional: 0.20
+  sentiment: 0.15
+  execution: 0.10
